@@ -1,0 +1,13 @@
+steps:
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    args:
+      - beta
+      - workstations
+      - start
+      - ws-k8s-dev-16
+      - '--project=$PROJECT_ID'
+      - '--cluster=tokyo-cluster'
+      - '--config=config-k8s-dev'
+      - '--region=asia-northeast1'
+    id: start workstation
+    entrypoint: gcloud
