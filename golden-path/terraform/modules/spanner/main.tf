@@ -7,6 +7,7 @@ resource "google_spanner_instance" "spanner_instance" {
   config       = "regional-asia-northeast1"
   display_name = var.instance_name
   num_nodes    = 1
+  depends_on   = [google_project_service.spanner]
 }
 
 resource "google_spanner_database" "database" {

@@ -1,7 +1,3 @@
-variable "bucket_name" {
-  description = "GCS Backend Bucket Name"
-}
-
 variable "project_id" {
   description = "Project ID"
 }
