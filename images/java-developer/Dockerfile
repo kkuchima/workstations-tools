@@ -58,3 +58,6 @@ RUN wget https://open-vsx.org/api/hashicorp/terraform/linux-x64/2.30.1/file/hash
     unzip hashicorp.terraform-2.30.1@linux-x64.vsix "extension/*" &&\
     mv extension /opt/code-oss/extensions/vscode-terraform
 
+# Clone Sample App
+COPY scripts/300_gitclone.sh /etc/workstation-startup.d/
+RUN chmod +x /etc/workstation-startup.d/300_gitclone.sh
