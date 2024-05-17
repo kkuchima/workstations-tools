@@ -4,7 +4,10 @@ FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:la
 RUN go install github.com/cloudspannerecosystem/spanner-cli@latest && sudo mv /root/go/bin/spanner-cli /usr/local/go/bin
 
 # Install Cloud Spanner Emulator
-RUN sudo apt-get install google-cloud-cli-spanner-emulator
+RUN sudo apt-get install google-cloud-cli-spanner-emulator -y
+
+# Install Maven
+RUN sudo apt-get install maven -y
 
 # Install Terraform
 RUN sudo apt-get update && sudo apt-get install -y gnupg software-properties-common && \
