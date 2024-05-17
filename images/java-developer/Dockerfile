@@ -28,11 +28,6 @@ RUN wget https://open-vsx.org/api/vscjava/vscode-spring-boot-dashboard/0.13.1/fi
     unzip vscjava.vscode-spring-boot-dashboard-0.13.1.vsix "extension/*" &&\
     mv extension /opt/code-oss/extensions/vscode-spring-boot-dashboard
 
-# Spring Boot Tools
-RUN wget https://open-vsx.org/api/VMware/vscode-spring-boot/1.53.0/file/VMware.vscode-spring-boot-1.53.0.vsix && \
-    unzip VMware.vscode-spring-boot-1.53.0.vsix "extension/*" &&\
-    mv extension /opt/code-oss/extensions/vscode-spring-boot
-
 # Extension pack for Java
 RUN wget https://open-vsx.org/api/vscjava/vscode-java-pack/0.26.0/file/vscjava.vscode-java-pack-0.26.0.vsix && \
     unzip vscjava.vscode-java-pack-0.26.0.vsix "extension/*" &&\
@@ -62,3 +57,6 @@ RUN wget https://open-vsx.org/api/redhat/vscode-yaml/1.14.0/file/redhat.vscode-y
 RUN wget https://open-vsx.org/api/hashicorp/terraform/linux-x64/2.30.1/file/hashicorp.terraform-2.30.1@linux-x64.vsix && \
     unzip hashicorp.terraform-2.30.1@linux-x64.vsix "extension/*" &&\
     mv extension /opt/code-oss/extensions/vscode-terraform
+
+# Clone Sample App
+RUN git clone https://github.com/GoogleCloudPlatform/google-cloud-spanner-hibernate.git
