@@ -30,3 +30,17 @@ RUN sudo apt-get update && sudo apt-get install -y gnupg software-properties-com
     echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list && \
     sudo apt update && \
     sudo apt-get install terraform
+
+# Install ArgoCD
+RUN VERSION=$(curl -L -s https://raw.githubusercontent.com/argoproj/argo-cd/stable/VERSION) && \
+    curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/download/v$VERSION/argocd-linux-amd64 && \
+    sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd && \
+    rm argocd-linux-amd64
+
+# Install helm-diff
+RUN helm plugin install https://github.com/databus23/helm-diff
+
+# Install helmfile
+RUN wget https://github.com/roboll/helmfile/releases/download/v0.144.0/helmfile_linux_amd64 && \
+    sudo mv helmfile_linux_amd64 /usr/local/bin/helmfile && \
+    chmod 755 /usr/local/bin/helmfile
